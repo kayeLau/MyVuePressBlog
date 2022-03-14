@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用Vue封裝個echart圖表 | Kaye</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="loading">
+    
+    <link rel="preload" href="/MyVuePressBlog/assets/css/0.styles.41b3aff9.css" as="style"><link rel="preload" href="/MyVuePressBlog/assets/js/app.7bbff6c2.js" as="script"><link rel="preload" href="/MyVuePressBlog/assets/js/4.34cb809d.js" as="script"><link rel="preload" href="/MyVuePressBlog/assets/js/1.89c8fb5e.js" as="script"><link rel="preload" href="/MyVuePressBlog/assets/js/29.0623de21.js" as="script"><link rel="prefetch" href="/MyVuePressBlog/assets/js/10.e9611723.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/11.fca50ddc.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/12.55ab2e1a.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/13.2df79cea.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/14.bc413c61.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/15.6a860406.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/16.56e1c9ca.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/17.f411a53d.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/18.d454c1a4.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/19.aa9c2792.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/2.8623d11c.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/20.8d47350e.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/21.4ec9244d.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/22.bddc3f5f.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/23.bcebd7a6.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/24.b134e7a4.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/25.8a60d120.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/26.6493ad19.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/27.e2df7057.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/28.d3d14696.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/30.69534015.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/31.96dd26b6.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/32.3c8a2fa7.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/33.67e53ddf.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/5.a7efeedd.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/6.2bd9052e.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/7.52dddd8e.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/8.367f25d1.js"><link rel="prefetch" href="/MyVuePressBlog/assets/js/9.aa7a5810.js">
+    <link rel="stylesheet" href="/MyVuePressBlog/assets/css/0.styles.41b3aff9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-1156296a><div data-v-1156296a><div id="loader-wrapper" class="loading-wrapper" data-v-858fc5aa data-v-1156296a data-v-1156296a><div class="main" data-v-858fc5aa><div class="daruma" data-v-858fc5aa><div class="daruma-face" data-v-858fc5aa><div class="daruma-eye" data-v-858fc5aa></div> <div class="daruma-eye" data-v-858fc5aa></div> <div class="daruma-mustache" data-v-858fc5aa></div> <div class="daruma-nose" data-v-858fc5aa></div> <div class="daruma-eyebrow" data-v-858fc5aa></div></div></div> <div class="daruma-shadow" data-v-858fc5aa></div></div></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-4e82dffc data-v-1156296a data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>Kaye</h3> <p class="description" data-v-4e82dffc data-v-4e82dffc>loading</p> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>Kaye</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-1156296a><header class="navbar" data-v-1156296a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/MyVuePressBlog/" class="home-link router-link-active"><!----> <span class="site-name">Kaye</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/MyVuePressBlog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/後端/" class="nav-link"><i class="undefined"></i>
+  後端
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/雜談/" class="nav-link"><i class="undefined"></i>
+  雜談
+</a></li></ul></div></div><div class="nav-item"><a href="/MyVuePressBlog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://codepen.io/KayeLau" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-coding"></i>
+  CodePan
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/kayeLau" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/kayeung/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-suggestion"></i>
+  Leetcode
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1156296a></div> <aside class="sidebar" data-v-1156296a><div class="personal-info-wrapper" data-v-828910c6 data-v-1156296a><!----> <h3 class="name" data-v-828910c6>
+    Kaye
+  </h3> <div class="num" data-v-828910c6><div data-v-828910c6><h3 data-v-828910c6>15</h3> <h6 data-v-828910c6>Articles</h6></div> <div data-v-828910c6><h3 data-v-828910c6>11</h3> <h6 data-v-828910c6>Tags</h6></div></div> <ul class="social-links" data-v-828910c6></ul> <hr data-v-828910c6></div> <nav class="nav-links"><div class="nav-item"><a href="/MyVuePressBlog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/算法/" class="nav-link"><i class="undefined"></i>
+  算法
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/後端/" class="nav-link"><i class="undefined"></i>
+  後端
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/前端/" class="nav-link"><i class="undefined"></i>
+  前端
+</a></li><li class="dropdown-item"><!----> <a href="/MyVuePressBlog/categories/雜談/" class="nav-link"><i class="undefined"></i>
+  雜談
+</a></li></ul></div></div><div class="nav-item"><a href="/MyVuePressBlog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://codepen.io/KayeLau" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-coding"></i>
+  CodePan
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://github.com/kayeLau" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://leetcode-cn.com/u/kayeung/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-suggestion"></i>
+  Leetcode
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-4e82dffc data-v-1156296a><h3 class="title" data-v-4e82dffc data-v-4e82dffc>用Vue封裝個echart圖表</h3> <!----> <label id="box" class="inputBox" data-v-4e82dffc data-v-4e82dffc><input type="password" value="" data-v-4e82dffc> <span data-v-4e82dffc>Konck! Knock!</span> <button data-v-4e82dffc>OK</button></label> <div class="footer" data-v-4e82dffc data-v-4e82dffc><span data-v-4e82dffc><i class="iconfont reco-theme" data-v-4e82dffc></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-4e82dffc>vuePress-theme-reco</a></span> <span data-v-4e82dffc><i class="iconfont reco-copyright" data-v-4e82dffc></i> <a data-v-4e82dffc><span data-v-4e82dffc>Kaye</span>
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-1156296a><main class="page"><section><div class="page-title"><h1 class="title">用Vue封裝個echart圖表</h1> <div data-v-1ff7123e><i class="iconfont reco-account" data-v-1ff7123e><span data-v-1ff7123e>Kaye</span></i> <i class="iconfont reco-date" data-v-1ff7123e><span data-v-1ff7123e>5/20/2021</span></i> <!----> <i class="tags iconfont reco-tag" data-v-1ff7123e><span class="tag-item" data-v-1ff7123e>vue</span><span class="tag-item" data-v-1ff7123e>echart</span></i></div></div> <div class="theme-reco-content content__default"><p>最近用echart的頻率比較高,需要在項目中生成多個折線或者柱狀圖,如果分成數個獨立的組件,之後要更改參數或者維護都會非常麻煩。因此,把基本設定封裝成一個組件,對於後面維護或者統一修尹都非常方便,測試量也大大減少。使用時只需要把圖表數據傳進去即可。</p> <h2 id="構思"><a href="#構思" class="header-anchor">#</a> 構思</h2> <p>首先我希望封裝的組件具備以下特性</p> <ul><li>當數據改變時自動更新圖表</li> <li>傳入數據即可生成默認圖表</li> <li>可以選擇性傳入其他圖表設定,覆蓋默認值</li></ul> <h2 id="文件結構"><a href="#文件結構" class="header-anchor">#</a> 文件結構</h2> <p>定義一個echart_line文件夾存放我們的封裝組件,index.vue是入口,負責做邏輯判斷,比如當傳入數據不合法或為空時,就在頁面展示一個“沒有數據”的圖標。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>worktime_chart.vue //使用封裝組件
+echart_line
+<span class="token operator">|</span>-default_option.json // 圖表默認設定
+<span class="token operator">|</span>-echart_line.vue // 封裝組件
+<span class="token operator">|</span>-index.vue //入口
+</code></pre></div><h2 id="封裝組件"><a href="#封裝組件" class="header-anchor">#</a> 封裝組件</h2> <p>props存放傳進來的數據與額外設定,this.assembleDataToOption()方法會把所有圖表設定合成一個對象,通過調用這個方法就可以拿到完整的設定。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// echart_line.vue</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;chart&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> echarts <span class="token keyword">from</span> <span class="token string">&quot;echarts&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">BASIC_OPTION</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./default_option&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ResizeListener <span class="token keyword">from</span> <span class="token string">&quot;element-resize-detector&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;ChartLine&quot;</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    seriesData<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">//圖表數據</span>
+      type<span class="token operator">:</span> Object<span class="token punctuation">,</span>
+      required<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    extraOption<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">//額外圖表設定</span>
+      type<span class="token operator">:</span> Object<span class="token punctuation">,</span>
+      <span class="token function-variable function">default</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      chart<span class="token operator">:</span> <span class="token keyword">null</span> <span class="token comment">//存放echart實例</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">assembleDataToOption</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">//組合數據與配置</span>
+      <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>
+        <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token constant">BASIC_OPTION</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          xAxis<span class="token operator">:</span> <span class="token punctuation">{</span>
+            type<span class="token operator">:</span> <span class="token string">&quot;category&quot;</span><span class="token punctuation">,</span>
+            boundaryGap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            data<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>seriesData<span class="token punctuation">.</span>xAxis
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          series<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>seriesData<span class="token punctuation">.</span>data
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>extraOption
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function">addChartResizeListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> instance <span class="token operator">=</span> <span class="token function">ResizeListener</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        strategy<span class="token operator">:</span> <span class="token string">&quot;scroll&quot;</span><span class="token punctuation">,</span>
+        callOnAdd<span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      instance<span class="token punctuation">.</span><span class="token function">listenTo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$el<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function">updateChartView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">//更新echart视图</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> fullOption <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">assembleDataToOption</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">.</span><span class="token function">setOption</span><span class="token punctuation">(</span>fullOption<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token function">handleWindowResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>chart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//初始化echart實例,this.$el為組件根節點</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>chart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$el<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateChartView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//初始化圖表</span>
+    <span class="token comment">//監聽窗口大小改變</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;resize&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleWindowResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addChartResizeListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;resize&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleWindowResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="監聽數據變化"><a href="#監聽數據變化" class="header-anchor">#</a> 監聽數據變化</h2> <p>監聽props裡的seriesData,當數據改變就會觸發this.updateChartView()方法。這邊用的深度监听,监听器会一层层的往下遍历，给对象的所有属性都加上这个监听器,所以對象裡的属性改變也會觸發方法。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// echart_line.vue </span>
+watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+    seriesData<span class="token operator">:</span> <span class="token punctuation">{</span> 
+      deep<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">//深度监听</span>
+      <span class="token function">handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateChartView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h2 id="組件入口"><a href="#組件入口" class="header-anchor">#</a> 組件入口</h2> <p>組件入口要替傳入的數據把關,當傳入非法數據或者空數據,頁面上就要展示沒有數據。當然,其他判斷業務邏輯也可以在這一層處理,這層主要是確保接口傳入的參數是合非的。這邊用的是vant的Empty,當數據為空時,就會展示該組件。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// index.vue</span>
+<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>Empty v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;isSeriesEmpty&quot;</span> description<span class="token operator">=</span><span class="token string">&quot;暫無數據&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>chart<span class="token operator">-</span>line v<span class="token operator">-</span><span class="token keyword">else</span> <span class="token operator">:</span>series<span class="token operator">-</span>data<span class="token operator">=</span><span class="token string">&quot;seriesData&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">import</span> chartLine <span class="token keyword">from</span> <span class="token string">&quot;./echart_line.vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Empty <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vant&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;EChartLine&quot;</span><span class="token punctuation">,</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span> chartLine<span class="token punctuation">,</span> Empty <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    seriesData<span class="token operator">:</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> Object<span class="token punctuation">,</span>
+      required<span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  computed<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 针对饼图数据是不是无效的判断</span>
+    <span class="token function">isSeriesEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>seriesData<span class="token punctuation">.</span>data<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="使用組件"><a href="#使用組件" class="header-anchor">#</a> 使用組件</h2> <p>把workTimeData數據與extraOption傳入</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>echart<span class="token operator">-</span>line <span class="token operator">:</span>series<span class="token operator">-</span>data<span class="token operator">=</span><span class="token string">&quot;workTimeData&quot;</span> <span class="token operator">:</span>extra<span class="token operator">-</span>option<span class="token operator">=</span><span class="token string">&quot;extraOption&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">import</span> EchartLine <span class="token keyword">from</span> <span class="token string">&quot;@/components/echart_line&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
+    EchartLine
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      workTimeData<span class="token operator">:</span><span class="token punctuation">{</span>
+       	xAxis<span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'5/11'</span><span class="token punctuation">,</span><span class="token string">'5/12'</span><span class="token punctuation">,</span><span class="token string">'5/13'</span><span class="token punctuation">,</span><span class="token string">'5/14'</span><span class="token punctuation">,</span><span class="token string">'5/15'</span><span class="token punctuation">,</span><span class="token string">'5/16'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        data<span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+          name<span class="token operator">:</span><span class="token string">&quot;工作時間(hour)&quot;</span><span class="token punctuation">,</span>
+          type<span class="token operator">:</span><span class="token string">&quot;line&quot;</span><span class="token punctuation">,</span>
+          data<span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      extraOption<span class="token operator">:</span> <span class="token punctuation">{</span>
+        color<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;#fe883a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;#2d90d1&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;#f75981&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;#90e2a9&quot;</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-70334359><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#構思" class="sidebar-link reco-side-構思" data-v-70334359>構思</a></li><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#文件結構" class="sidebar-link reco-side-文件結構" data-v-70334359>文件結構</a></li><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#封裝組件" class="sidebar-link reco-side-封裝組件" data-v-70334359>封裝組件</a></li><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#監聽數據變化" class="sidebar-link reco-side-監聽數據變化" data-v-70334359>監聽數據變化</a></li><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#組件入口" class="sidebar-link reco-side-組件入口" data-v-70334359>組件入口</a></li><li class="level-2" data-v-70334359><a href="/MyVuePressBlog/blog/font-end/vue/echart-package/#使用組件" class="sidebar-link reco-side-使用組件" data-v-70334359>使用組件</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/MyVuePressBlog/assets/js/app.7bbff6c2.js" defer></script><script src="/MyVuePressBlog/assets/js/4.34cb809d.js" defer></script><script src="/MyVuePressBlog/assets/js/1.89c8fb5e.js" defer></script><script src="/MyVuePressBlog/assets/js/29.0623de21.js" defer></script>
+  </body>
+</html>
